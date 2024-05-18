@@ -1,34 +1,24 @@
 <?php
-include_once('objetos_cart.php');
-include_once('sesiones_cart.php');
+class Carrito{
+
+    function __construct($nombre, $cantidad=0, $precio=0){
+        $this->nombre=$nombre;
+        $this->cantidad=$cantidad;
+        $this->precio=$precio;
+    }
+
+    function setCantidad($cantidad) {
+    $this->cantidad = $cantidad;
+    }
+
+
+    function setPrecio($precio){
+        $this->precio=$precio;
+    }
+
+
+}
+
+$carrito= new Carrito("Carrito",0,0);
 
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head> 
-<body>
-
-    <h3>Bievenvenido al carrito</h3>
-    <h3>Tu carrito tiene: <?php echo count($carrito);?></h3>
-    <?php for ($i=0; $i < count($producto);$i++) { ?>
-
-    
-    <div>
-        <?php echo $producto[$i]->producto?> <br>
-        <?php echo $producto[$i]->precio?> <br>
-        <?php echo $producto[$i]->cantidad?>
-        <button class="agregar">Agregar </button>
-
-    </div>
-    <?php }  ?>
-
-
-
-</body>
-</html>
